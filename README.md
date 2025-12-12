@@ -212,19 +212,6 @@ Then open:
 
 http://127.0.0.1:5000/
 
-📸 Screenshots
-
-(Add your screenshots here)
-
-Example:
-
-screenshots/
-  upload_ui.png
-  dashboard.png
-  azure_upload.png
-  aws_upload.png
-  teams_alert.png
-
 
 
 ⚠️ Security Notes
