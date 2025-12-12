@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGen Backup Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="navbar">
+    <div class="brand">☁️ NextGen Dashboard</div>
+    <nav>
+      <a href="/" class="nav-btn">Home</a>
+      <a href="/dashboard" class="nav-btn active">Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Backup Monitoring Console</h1>
+    <p>Real-time insight into cloud storage, ransomware scans, and system performance.</p>
+  </section>
+
+  <!-- DASHBOARD GRID -->
+  <main class="dashboard">
+    <div class="card">
+      <h3>📊 Upload History</h3>
+      <canvas id="uploadChart"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>☁️ Cloud Storage Usage</h3>
+      <canvas id="storageChart"></canvas>
+    </div>
+
+    <div class="card full">
+      <h3>🦠 Ransomware Detection Trends</h3>
+      <canvas id="ransomwareChart"></canvas>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 NextGen Cloud Systems | Developed by 
+      <strong>Palla Chetana Reddy</strong> 
+    </p>
+  </footer>
+<script>
+  const chartData = JSON.parse('{{ stats | tojson | safe }}');
+</script>
+
+
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

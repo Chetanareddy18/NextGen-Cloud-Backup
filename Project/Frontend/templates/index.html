@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGen Cloud Backup</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="brand">☁️ NextGen Cloud Backup</div>
+    <nav>
+      <a href="{{ url_for('dashboard') }}" class="nav-btn">Dashboard</a>
+
+      <!-- <button class="nav-btn">About</button>
+      <button class="nav-btn">Support</button> -->
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Intelligent Cloud Backup System</h1>
+    <p>AI-driven ransomware detection with dual-cloud failover recovery - simple, secure, and reliable.</p>
+  </section>
+
+  <!-- MAIN UPLOAD PANEL -->
+  <main class="main-panel">
+    <div class="upload-section">
+      <div class="upload-card">
+        <h2>Upload Your File</h2>
+        <p>Supports PDF, DOCX, TXT, and Images.</p>
+
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+          <input type="file" name="file" id="fileInput" required />
+          <button type="submit" class="upload-btn">Start Backup</button>
+        </form>
+      </div>
+
+      <div class="log-card">
+        <h3>🧾 Backup Logs</h3>
+        <div class="log-box" id="logBox">
+          {% if logs %}
+            {% for log in logs %}
+              <p>{{ log }}</p>
+            {% endfor %}
+          {% else %}
+            <p class="no-log">No logs yet. Upload a file to begin.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOUD STATUS -->
+    <div class="cloud-status">
+      <div class="status-card azure">
+        <h4>Azure (Primary)</h4>
+        <p>Status: ✅ Active</p>
+      </div>
+      <div class="status-card aws">
+        <h4>AWS (Secondary)</h4>
+        <p>Status: ✅ Synced</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 NextGen Cloud Systems | Developed by 
+      <strong>Palla Chetana Reddy</strong> & 
+    </p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

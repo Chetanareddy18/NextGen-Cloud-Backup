@@ -14,7 +14,7 @@ blob_service_client = BlobServiceClient.from_connection_string(connection_string
 container_client = blob_service_client.get_container_client(container_name)
 
 # File to upload
-file_path = "test_backup.txt"
+file_path = "azure_failover_backup.txt"
 blob_name = os.path.basename(file_path)
 
 try:
