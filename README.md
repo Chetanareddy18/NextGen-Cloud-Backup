@@ -225,11 +225,7 @@ screenshots/
   aws_upload.png
   teams_alert.png
 
-### Upload Page  
-![Upload UI](screenshots/upload_ui.png)
 
-### Cloud Dashboard  
-![Dashboard](screenshots/dashboard.png)
 
 ⚠️ Security Notes
 
