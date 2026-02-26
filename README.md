@@ -1,4 +1,4 @@
-##🌩️ NextGen Cloud Backup System
+## 🌩️ NextGen Cloud Backup System
 A Cross-Cloud Automatic Backup, Failover & Ransomware-Aware Storage Solution
 
 NextGen Cloud Backup System is a multi-cloud, automated, secure backup framework designed to protect critical files against storage failures, ransomware attacks, and data corruption.
