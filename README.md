@@ -1,209 +1,112 @@
-## 🌩️ NextGen Cloud Backup System
-A Cross-Cloud Automatic Backup, Failover & Ransomware-Aware Storage Solution
+# NextGen Cloud Backup System
+# NextGen Cloud Backup System
 
-NextGen Cloud Backup System is a multi-cloud, automated, secure backup framework designed to protect critical files against storage failures, ransomware attacks, and data corruption.
-It seamlessly uploads files to both Azure Blob Storage and AWS S3, includes automatic failover, and sends real-time alerts via Email and Microsoft Teams.
-The project demonstrates enterprise-grade resilience with a clean UI and intelligent backend.
+## Cross-Cloud Automatic Backup, Failover, and Ransomware-Aware Storage
 
-📑 Table of Contents
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Backend-Flask-000000?logo=flask&logoColor=white)
+![Azure](https://img.shields.io/badge/Cloud-Azure%20Blob-0078D4?logo=microsoftazure&logoColor=white)
+![AWS](https://img.shields.io/badge/Cloud-AWS%20S3-FF9900?logo=amazonaws&logoColor=white)
 
-Features
+NextGen Cloud Backup System is a multi-cloud backup framework that protects critical files against storage failures, corruption, and ransomware-like behavior. It supports automated backup to Azure Blob and AWS S3, cloud failover, and real-time alerting via email and Microsoft Teams.
 
-- System Architecture
+## Features
 
-Project Structure
+- Multi-cloud backup to Azure Blob Storage and AWS S3
+- Automatic failover between cloud providers
+- Simulated ransomware/corruption detection layer
+- Real-time alerting for success, failure, failover, and warnings
+- Web UI for uploads and dashboard monitoring
+- Backend modules for orchestration, integrity checks, and restore
 
-Tech Stack
+## System Architecture
 
-Installation & Setup
+### Frontend (Flask UI)
 
-Usage
+- File upload interface
+- Dashboard status view
+- User-facing result and alert feedback
 
-Configuration
+### Backend (Python Services)
 
-Dashboard
+- Upload and failover orchestration
+- Ransomware simulation/detection layer
+- File integrity verification
+- Restore/download operations
+- Alert integration
 
-Security Notes
+### Cloud and Alerting
 
-Future Enhancements
+- Azure Blob Storage
+- AWS S3
+- SMTP Email alerts
+- Microsoft Teams webhook alerts
 
-Troubleshooting
+## Project Structure
 
-Author
-
-License
-
-🚀 Features
-🔹 Multi-Cloud Backup
-
-Automatically uploads user files to:
-
-Azure Blob Storage
-
-AWS S3
-
-Ensures redundancy and strong disaster recovery.
-
-🔹 Automatic Failover
-
-If Azure upload fails, the system switches to AWS — and vice versa — guaranteeing no data loss.
-
-🔹 Ransomware Detection (Simulated)
-
-Scans uploaded files for suspicious patterns
-
-Can be extended into ML/AI-based anomaly detection
-
-🔹 Real-Time Alerts
-
-Receive immediate notifications for:
-
-Successful uploads
-
-Failover events
-
-Ransomware detection warnings
-
-Backup failures
-
-Delivery channels:
-
-Email (SMTP Gmail)
-
-Microsoft Teams Webhook
-
-🔹 Clean Modern UI
-
-Minimal and responsive interface built with:
-
-HTML5
-
-CSS3
-
-Bootstrap
-
-JavaScript
-
-🔹 Dashboard View
-
-Monitor:
-
-Upload history
-
-Cloud health status
-
-Number of failovers
-
-Alerts triggered
-
-🏛️ System Architecture
-Frontend (Flask UI)
-
-Upload page
-
-Dashboard
-
-Alert pop-ups
-
-Backend (Python Flask)
-
-File handling
-
-Cloud upload logic
-
-Failover logic
-
-Ransomware detection
-
-Logging
-
-Alert services
-
-Cloud Providers
-
-Azure Blob Storage
-
-AWS S3
-
-Alert Channels
-
-SMTP Email
-
-Microsoft Teams Webhook
-
-📂 Project Structure
+```text
 NextGen-Cloud-Backup/
-│
-├── Backend/
-│   ├── failover_restore.py
-│   ├── cloud_utils.py
-│   ├── alert_services.py
-│   ├── requirements.txt
-│   └── .env
-│
-├── Frontend/
-│   ├── app.py
-│   ├── templates/
-│   │     ├── index.html
-│   │     ├── dashboard.html
-│   │     └── result.html
-│   ├── static/
-│         ├── css/
-│         ├── js/
-│         └── images/
-│   └── .env
-│
-└── README.md
+|-- Project/
+|   |-- Backend/
+|   |   |-- api_server.py
+|   |   |-- failover_restore.py
+|   |   |-- main_orchestrator.py
+|   |   |-- ransomware_layer.py
+|   |   |-- upload_to_aws.py
+|   |   |-- upload_to_azure.py
+|   |   |-- verify_integrity.py
+|   |   `-- download_local.py
+|   |-- Frontend/
+|   |   |-- app.py
+|   |   |-- alert_services.py
+|   |   |-- dashboard_data.json
+|   |   |-- templates/
+|   |   `-- static/
+|   `-- .env
+|-- requirements.txt
+`-- README.md
+```
 
-🛠️ Tech Stack
-Backend
+## Tech Stack
 
-Python 3
+### Backend
 
-Flask
+- Python
+- Flask
+- boto3 (AWS S3)
+- azure-storage-blob (Azure Blob)
+- python-dotenv
+- requests
+- smtplib
 
-Azure SDK (azure-storage-blob)
+### Frontend
 
-AWS Boto3
+- Flask templates
+- HTML5
+- CSS3
+- Bootstrap
+- JavaScript
 
-Python Dotenv
+## Setup and Installation
 
-SMTP (smtplib)
+### 1. Clone the Repository
 
-HTTP Requests (requests)
-
-Frontend
-
-HTML5
-
-CSS3
-
-Bootstrap
-
-JavaScript
-
-Cloud
-
-Azure Blob Storage
-
-AWS S3
-
-🔧 Installation & Setup
-1️⃣ Clone the Repository
-git clone https://github.com/yourusername/NextGen-Cloud-Backup.git
+```bash
+git clone https://github.com/Chetanareddy18/NextGen-Cloud-Backup.git
 cd NextGen-Cloud-Backup
+```
 
-2️⃣ Install Requirements
-Backend:
-cd Backend
+### 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-Frontend:
-cd ../Frontend
-pip install -r requirements.txt
+### 3. Configure Environment Variables
 
-3️⃣ Create .env Files
-Backend .env
+Create `Project/.env` with your credentials:
+
+```env
 AZURE_CONN_STRING=your_azure_storage_connection_string
 AZURE_CONTAINER=your_container
 
@@ -216,123 +119,72 @@ ALERT_EMAIL_PASSWORD=your_generated_app_password
 ALERT_RECEIVER=receiver@gmail.com
 
 TEAMS_WEBHOOK_URL=your_teams_webhook_url
-
-Frontend .env
 FLASK_SECRET=your_secret
+```
 
-4️⃣ Run the Backend
-cd Backend
-python failover_restore.py
+## Run the Project
 
-5️⃣ Run the Frontend
-cd Frontend
-python app.py
+### Start Backend Services
 
+```bash
+python Project/Backend/main_orchestrator.py
+```
 
-Open your browser:
-👉 http://127.0.0.1:5000/
+### Start Frontend App
 
-📘 Usage
+```bash
+python Project/Frontend/app.py
+```
 
-Open the UI Upload Page
+Open in browser:
 
-Select a file to back up
+`http://127.0.0.1:5000/`
 
-System performs:
+## Usage Workflow
 
-Ransomware scan
+1. Upload a file using the UI.
+2. System checks for suspicious/corrupted patterns.
+3. File uploads to the primary cloud target.
+4. If primary fails, automatic failover sends to secondary cloud.
+5. Alerts and dashboard records are updated.
+6. Restore/verification flow can be executed from backend modules.
 
-Primary cloud upload
+## Configuration Notes
 
-Failover if needed
+- Cloud and alert keys are managed through `Project/.env`.
+- Alert logic is implemented in `Project/Frontend/alert_services.py`.
+- Backup/failover logic lives in `Project/Backend/failover_restore.py` and `Project/Backend/main_orchestrator.py`.
+- Integrity and ransomware simulation are in `Project/Backend/verify_integrity.py` and `Project/Backend/ransomware_layer.py`.
 
-View results on the Dashboard
+## Security Notes
 
-Alerts are sent automatically if enabled
+- Never commit `.env` secrets.
+- Use secret managers (Azure Key Vault, AWS Secrets Manager) in production.
+- Enforce HTTPS and secure credential rotation.
+- Replace simulated detection with production-grade ML anomaly models.
 
-⚙️ Configuration
-Modify cloud settings
+## Future Enhancements
 
-Backend .env controls all credentials for:
+- AI/ML-based ransomware detection
+- Real-time multi-cloud sync dashboard
+- Role-based authentication (RBAC)
+- End-to-end encrypted backups
+- Blockchain-backed integrity audit trails
 
-Azure Blob
+## Troubleshooting
 
-AWS S3
+| Issue | Possible Cause | Fix |
+| --- | --- | --- |
+| Upload fails | Invalid cloud credentials | Verify `Project/.env` keys |
+| Alerts not sent | SMTP/Teams config issue | Recheck alert credentials and webhook URL |
+| Dashboard stale | Frontend or backend not running | Start both services |
+| Failover not triggered | Primary provider still reachable | Simulate provider outage for test |
 
-Modify alert settings
+## Author
 
-You can enable/disable:
+Palla Chetana Reddy  
+NextGen Cloud Architect and Developer
 
-Email
+## License
 
-Teams Webhooks
-
-Extend ransomware detection
-
-Custom logic lives in:
-
-Backend/cloud_utils.py
-Backend/failover_restore.py
-
-📊 Dashboard
-
-Provides insights including:
-
-Upload success/failure summary
-
-Cloud service availability
-
-Failover events
-
-Recent alerts
-
-Easy to extend for:
-
-Graphs
-
-Real-time cloud sync
-
-File version history
-
-⚠️ Security Notes
-
-❌ Never upload .env to GitHub
-
-✔️ Use Azure KeyVault and AWS Secrets Manager for production
-
-✔️ Enforce HTTPS for all data transfer
-
-✔️ Replace simulated ransomware detection with ML/AI models
-
-🌟 Future Enhancements
-
-Planned advanced features:
-
-AI/ML-based ransomware detection
-
-Anomaly detection for abnormal backup behavior
-
-Blockchain-based integrity verification
-
-Quantum-safe encryption
-
-Real-time multi-cloud sync dashboard
-
-User authentication (RBAC)
-
-End-to-end encrypted file backups
-
-🛠️ Troubleshooting
-Issue	Possible Cause	Fix
-Upload failing	Incorrect cloud credentials	Check .env
-No alerts sent	SMTP or Teams URL misconfigured	Confirm credentials
-Dashboard not updating	Backend not running	Launch both Flask apps
-Failover not triggering	Primary storage still reachable	Simulate cloud outage
-👨‍💻 Author
-
-Palla Chetana Reddy
-NextGen Cloud Architect & Developer
-
-📝 License
-
-Open-source — free for educational and research use.
+Open-source for educational and research use.
